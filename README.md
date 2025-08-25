@@ -1,417 +1,240 @@
-
-<html lang="en" dir="ltr">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>AI Merchant - Your Smart E-commerce Platform</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;400&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Cairo', sans-serif;
-      margin: 0;
-      background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
-      color: #222;
-    }
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: auto;
-    }
-    header {
-      background: #fff8f0;
-      border-radius: 0 0 36px 36px;
-      padding: 40px 0 30px 0;
-      box-shadow: 0 6px 24px #fdbb8433;
-      text-align: center;
-      position: relative;
-      margin-bottom: 40px;
-    }
-    .logo-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 18px;
-    }
-    .logo-img {
-      width: 110px;
-      height: 110px;
-      background: linear-gradient(135deg, #fff6e5 0%, #ffd6b0 100%);
-      border-radius: 50%;
-      box-shadow: 0 4px 18px #ffb36c33;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      margin-bottom: 12px;
-      border: 3px solid #ff6f3c;
-    }
-    .logo-img img {
-      width: 72px;
-      height: 72px;
-      object-fit: contain;
-      display: block;
-    }
-    .logo-text {
-      font-weight: 700;
-      font-size: 1.35rem;
-      color: #ff6f3c;
-      letter-spacing: 2px;
-      font-family: 'Cairo', sans-serif;
-    }
-    h1 {
-      font-size: 2.4rem;
-      color: #ff6f3c;
-      margin-bottom: 12px;
-    }
-    h2 {
-      color: #222;
-      margin-top: 0;
-    }
-    .subtitle {
-      font-size: 1.25rem;
-      color: #555;
-      margin-bottom: 20px;
-    }
-    .cta-btn {
-      background: linear-gradient(90deg,#ff6f3c,#ffc93c);
-      color: #fff;
-      border: none;
-      border-radius: 28px;
-      padding: 15px 48px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      margin-top: 20px;
-      font-weight: bold;
-      letter-spacing: 1px;
-      transition: background .2s;
-      box-shadow: 0 2px 12px #ffbb3c44;
-    }
-    .cta-btn:hover {
-      background: linear-gradient(90deg,#ffc93c,#ff6f3c);
-    }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
-      gap: 32px;
-      margin: 60px 0;
-    }
-    .feature {
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 1px 8px #ffb36c2a;
-      padding: 28px 20px 20px 20px;
-      text-align: center;
-      transition: transform .2s;
-      position: relative;
-    }
-    .feature:hover {
-      transform: translateY(-7px) scale(1.03);
-    }
-    .feature img {
-      width: 54px;
-      margin-bottom: 15px;
-    }
-    .feature-title {
-      font-weight: bold;
-      color: #ff6f3c;
-      margin-bottom: 7px;
-      font-size: 1.13rem;
-    }
-    .feature-desc {
-      font-size: 1rem;
-      color: #333;
-      min-height: 52px;
-    }
-    .how-it-works {
-      background: #fff8f0;
-      border-radius: 22px;
-      padding: 30px 16px 22px 16px;
-      margin-bottom: 40px;
-      box-shadow: 0 2px 12px #fdbb8422;
-    }
-    .steps {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 24px;
-      justify-content: center;
-      align-items: flex-start;
-      margin-top: 16px;
-      margin-bottom: 0;
-      text-align: left;
-    }
-    .step {
-      background: #fff;
-      border-radius: 14px;
-      box-shadow: 0 1px 7px #ffb36c1a;
-      padding: 22px 16px;
-      flex: 1 1 180px;
-      max-width: 230px;
-      min-width: 170px;
-      margin-bottom: 8px;
-    }
-    .step-num {
-      background: #ffc93c;
-      color: #fff;
-      width: 36px;
-      height: 36px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      font-size: 1.3rem;
-      font-weight: bold;
-      margin-right: 10px;
-    }
-    .subscribe {
-      background: #fff;
-      border-radius: 22px;
-      box-shadow: 0 2px 14px #ffb36c36;
-      padding: 36px 20px 26px 20px;
-      text-align: center;
-      margin: 60px auto 30px auto;
-      max-width: 440px;
-    }
-    .subscribe h3 {
-      color: #ff6f3c;
-      font-size: 1.4rem;
-      margin-bottom: 15px;
-    }
-    .form-group {
-      margin-bottom: 13px;
-      text-align: left;
-    }
-    .form-group label {
-      display: block;
-      font-size: 1rem;
-      margin-bottom: 5px;
-      color: #444;
-    }
-    .form-group input {
-      width: 100%;
-      padding: 11px 12px;
-      border-radius: 9px;
-      border: 1px solid #ffc93c;
-      font-size: 1rem;
-      box-sizing: border-box;
-    }
-    .sub-btn {
-      background: linear-gradient(90deg,#ff6f3c,#ffc93c);
-      color: #fff;
-      border: none;
-      border-radius: 22px;
-      padding: 12px 38px;
-      font-size: 1.07rem;
-      cursor: pointer;
-      font-weight: bold;
-      margin-top: 7px;
-      transition: background .2s;
-    }
-    .sub-btn:hover {
-      background: linear-gradient(90deg,#ffc93c,#ff6f3c);
-    }
-    .testimonials {
-      margin: 40px 0 20px 0;
-      text-align: center;
-    }
-    .testimonial {
-      background: #fff;
-      display: inline-block;
-      border-radius: 14px;
-      box-shadow: 0 1px 7px #ffb36c2a;
-      padding: 16px 22px;
-      margin: 8px 12px;
-      min-width: 240px;
-      max-width: 350px;
-      vertical-align: top;
-      color: #444;
-    }
-    .testimonial .author {
-      color: #ff6f3c;
-      font-weight: bold;
-      font-size: 1.03rem;
-      margin-top: 7px;
-    }
-    .faq {
-      margin: 42px auto 32px auto;
-      max-width: 700px;
-      background: #fff8f0;
-      border-radius: 18px;
-      box-shadow: 0 2px 12px #fdbb842a;
-      padding: 28px 18px;
-    }
-    .faq h3 {
-      color: #ff6f3c;
-      margin-bottom: 19px;
-      font-size: 1.2rem;
-    }
-    .faq-q {
-      color: #222;
-      font-weight: bold;
-      margin-bottom: 3px;
-      margin-top: 14px;
-    }
-    .faq-a {
-      color: #444;
-      font-size: 1rem;
-      margin-bottom: 7px;
-    }
-    footer {
-      background: #ff6f3c;
-      color: #fff;
-      text-align: center;
-      border-radius: 26px 26px 0 0;
-      padding: 18px 0 10px 0;
-      margin-top: 38px;
-      font-size: 1.08rem;
-      letter-spacing: 0.5px;
-    }
-    .footer-links {
-      margin: 7px 0;
-      font-size: .99rem;
-    }
-    .footer-links a {
-      color: #ffe1bb;
-      margin: 0 10px;
-      text-decoration: none;
-      transition: color .2s;
-    }
-    .footer-links a:hover {
-      color: #fff;
-      text-decoration: underline;
-    }
-    @media (max-width: 700px){
-      .features {grid-template-columns: 1fr;}
-      .steps {flex-direction: column;}
-      .testimonial {max-width: 90vw;}
-      header {padding: 18px 0 18px 0;}
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Merchant | التاجر الإلكتروني الذكي</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<meta name="description" content="AI Merchant منصة تاجر إلكتروني ذكي تعتمد على الذكاء الاصطناعي لأتمتة التجارة الإلكترونية بالكامل.">
+<style>
+/* ================= Base ================= */
+*{box-sizing:border-box;}
+:root{--bg:#0b1020;--bg-alt:#101733;--card:#121a3d;--text:#e8ecff;--muted:#a9b1d6;--primary:#6c9cff;--primary-ink:#0a0f24;--ring:rgba(108,156,255,0.35);--success:#22c55e;}
+html,body{margin:0;padding:0;background:linear-gradient(180deg,var(--bg) 0%,#0c1124 100%);color:var(--text);font-family:"Cairo",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.7;}
+img{max-width:100%;display:block;}
+a{color:var(--text);text-decoration:none;}
+.container{width:min(1100px,92%);margin:0 auto;}
+/* ================= Navbar ================= */
+.navbar{position:sticky;top:0;z-index:50;background:rgba(10,15,36,0.6);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.06);}
+.nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:12px 0;}
+.brand{display:inline-flex;gap:8px;align-items:center;font-weight:800;letter-spacing:.2px;}
+.brand .logo{font-size:20px;}
+.nav-links{display:flex;gap:16px;align-items:center;}
+.nav-links a{opacity:.9;}
+.burger{display:none;flex-direction:column;gap:4px;background:none;border:0;cursor:pointer;}
+.burger span{width:22px;height:2px;background:var(--text);display:block;}
+/* ================= Buttons, Badges ================= */
+.btn{display:inline-block;padding:10px 16px;border-radius:14px;border:1px solid transparent;font-weight:700;transition:transform .08s ease,box-shadow .2s ease,background .2s ease;box-shadow:0 8px 24px rgba(108,156,255,0.2);}
+.btn:hover{transform:translateY(-1px);}
+.btn:active{transform:translateY(0);}
+.btn--primary{background:var(--primary);color:var(--primary-ink);}
+.btn--ghost{background:transparent;border-color:rgba(255,255,255,0.12);}
+.badge{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(108,156,255,0.16);color:var(--text);font-weight:700;font-size:12px;border:1px solid rgba(108,156,255,0.25);}
+/* ================= Hero ================= */
+.hero{padding:64px 0 32px;}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:28px;}
+.hero-text h1{font-size:38px;line-height:1.2;margin:0 0 10px;}
+.muted{color:var(--muted);}
+.hero-cta{display:flex;gap:12px;margin-top:16px;}
+.badges{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;}
+.card{background:linear-gradient(180deg,var(--card),#0f1840);border:1px solid rgba(255,255,255,0.06);border-radius:18px;padding:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.06),0 20px 40px rgba(0,0,0,0.25);}
+.hero-card .card h3{margin-top:0;}
+.checklist{padding:0;margin:10px 0 0;list-style:none;}
+.checklist li{padding:8px 0;border-bottom:1px dashed rgba(255,255,255,0.08);}
+.checklist li:last-child{border-bottom:none;}
+/* ================= Sections ================= */
+.section{padding:64px 0;}
+.section.alt{background:linear-gradient(180deg,var(--bg-alt),rgba(16,23,51,0.7));}
+.section-title{font-size:28px;margin:0 0 24px;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.feature{padding:16px;border:1px solid rgba(255,255,255,0.06);border-radius:16px;background:rgba(18,26,61,0.6);}
+.feature-icon{font-size:22px;margin-bottom:8px;}
+.steps{counter-reset:step;padding:0;margin:0;list-style:none;display:grid;gap:10px;}
+.steps li{display:flex;gap:10px;align-items:center;background:rgba(18,26,61,0.6);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:12px 14px;}
+.steps li span{width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:var(--primary);color:var(--primary-ink);font-weight:800;}
+.price-card{position:relative;}
+.price-card--featured{outline:2px solid var(--primary);}
+.ribbon{position:absolute;top:-10px;left:12px;background:var(--primary);color:var(--primary-ink);font-weight:800;padding:4px 10px;border-radius:999px;font-size:12px;}
+.price{font-size:36px;font-weight:800;margin:8px 0 12px;}
+.price small{font-size:12px;color:var(--muted);}
+.list{list-style:none;padding:0;margin:0 0 12px;}
+.list li{padding:6px 0;border-bottom:1px dashed rgba(255,255,255,0.08);}
+.list li:last-child{border-bottom:0;}
+.toggle{position:relative;display:inline-flex;align-items:center;cursor:pointer;user-select:none;}
+.toggle input{display:none;}
+.toggle-track{position:relative;width:120px;height:36px;border-radius:999px;border:1px solid rgba(255,255,255,0.12);display:inline-flex;align-items:center;justify-content:space-between;padding:0 12px;font-weight:700;}
+.toggle-track::before{content:attr(data-monthly);position:absolute;right:14px;opacity:.9;}
+.toggle-track::after{content:"";position:absolute;top:4px;left:4px;width:28px;height:28px;border-radius:50%;background:var(--primary);transition:transform .25s ease;}
+.toggle input:checked + .toggle-track::before{content:attr(data-yearly);right:auto;left:14px;}
+.toggle input:checked + .toggle-track::after{transform:translateX(84px);}
+.accordion{display:grid;gap:10px;}
+.accordion-item{border:1px solid rgba(255,255,255,0.08);border-radius:14px;overflow:hidden;background:rgba(18,26,61,0.6);}
+.accordion-header{width:100%;text-align:start;background:transparent;color:var(--text);font-weight:700;border:0;padding:14px;cursor:pointer;}
+.accordion-body{padding:0 14px 14px;display:none;color:var(--muted);}
+.accordion-item.open .accordion-body{display:block;}
+.cta{padding-top:20px;}
+.cta-card{text-align:center;}
+.signup-form{margin-top:12px;display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;}
+.signup-form input{padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.02);color:var(--text);min-width:260px;}
+.form-msg{display:block;margin-top:6px;min-height:20px;}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+.footer{padding:24px 0 56px;border-top:1px solid rgba(255,255,255,0.06);}
+.footer-grid{display:flex;align-items:center;justify-content:space-between;}
+.socials a{opacity:.8;margin-inline-start:10px;}
+@media(max-width:940px){.hero-grid{grid-template-columns:1fr;}}
+@media(max-width:720px){.grid-3{grid-template-columns:1fr 1fr;}}
+@media(max-width:520px){.nav-links{display:none;position:absolute;inset-inline:0;top:56px;background:rgba(12,17,36,0.98);padding:12px 16px;flex-direction:column;gap:10px;}.nav-links.open{display:flex;}.burger{display:inline-flex;}.grid-3{grid-template-columns:1fr;}.hero-text h1{font-size:30px;}}
+</style>
 </head>
 <body>
-  <header>
-    <div class="logo-box">
-      <div class="logo-img">
-        <!-- AI Merchant Logo: Modern, tech/ecommerce style -->
-        <img src="https://cdn-icons-png.flaticon.com/512/3004/3004458.png" alt="AI Merchant Logo">
-      </div>
-      <div class="logo-text">AI Merchant</div>
-    </div>
-    <h1>Launch Your Smart Store with AI Merchant</h1>
-    <div class="subtitle">
-      AI manages your entire e-commerce business…<br>
-      Focus on profits and let us handle the rest!
-    </div>
-    <button class="cta-btn" onclick="document.getElementById('subscribe').scrollIntoView({behavior:'smooth'})">Start Free Now</button>
-  </header>
-
-  <div class="container">
-    <h2 style="text-align:center;margin-bottom:10px;">All Features in One Place</h2>
-    <div class="features">
-      <div class="feature">
-        <img src="https://cdn-icons-png.flaticon.com/512/2332/2332670.png" alt="Product Selection">
-        <div class="feature-title">Profitable Product Selection</div>
-        <div class="feature-desc">AI analyzes your local market and recommends the most in-demand and profitable products.</div>
-      </div>
-      <div class="feature">
-        <img src="https://cdn-icons-png.flaticon.com/512/2516/2516746.png" alt="Stock Management">
-        <div class="feature-title">Automated Inventory Management</div>
-        <div class="feature-desc">Alerts when stock is low and automatic integration with suppliers to restock directly.</div>
-      </div>
-      <div class="feature">
-        <img src="https://cdn-icons-png.flaticon.com/512/2894/2894771.png" alt="Dynamic Pricing">
-        <div class="feature-title">Smart Dynamic Pricing</div>
-        <div class="feature-desc">The system automatically adjusts prices according to market demand and competition.</div>
-      </div>
-      <div class="feature">
-        <img src="https://cdn-icons-png.flaticon.com/512/2922/2922676.png" alt="Smart Marketing">
-        <div class="feature-title">AI-Powered Targeted Marketing</div>
-        <div class="feature-desc">Facebook, Instagram, Google campaigns… everything managed automatically for the best results.</div>
-      </div>
-      <div class="feature">
-        <img src="https://cdn-icons-png.flaticon.com/512/1250/1250620.png" alt="24/7 Support">
-        <div class="feature-title">Smart 24/7 Customer Support</div>
-        <div class="feature-desc">A chatbot responds to customers, tracks orders, and suggests related products any time.</div>
-      </div>
-      <div class="feature">
-        <img src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png" alt="Shipping Integration">
-        <div class="feature-title">Integrated Shipping Solutions</div>
-        <div class="feature-desc">The system automatically coordinates with local shipping companies for fast delivery.</div>
-      </div>
-    </div>
-
-    <div class="how-it-works">
-      <h2 style="text-align:center;">How Does It Work?</h2>
-      <div class="steps">
-        <div class="step">
-          <span class="step-num">1</span>
-          Create your account in minutes — no technical experience needed.
-        </div>
-        <div class="step">
-          <span class="step-num">2</span>
-          Get profitable product suggestions from AI.
-        </div>
-        <div class="step">
-          <span class="step-num">3</span>
-          Launch your online store automatically.
-        </div>
-        <div class="step">
-          <span class="step-num">4</span>
-          Receive orders and let the platform handle everything else!
-        </div>
-      </div>
-    </div>
-
-    <div class="subscribe" id="subscribe">
-      <h3>Try AI Merchant for Free Now 👇</h3>
-      <form>
-        <div class="form-group">
-          <label for="name">Full Name</label>
-          <input type="text" id="name" name="name" placeholder="Enter your name" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="example@email.com" required>
-        </div>
-        <button type="submit" class="sub-btn">Subscribe for Free</button>
-      </form>
-      <div style="font-size:.97rem;color:#888;margin-top:10px;">No credit card required for the free trial!</div>
-    </div>
-
-    <div class="testimonials">
-      <div class="testimonial">
-        <div>I launched my store in less than an hour! Everything is managed automatically.</div>
-        <div class="author">Ahmed - Entrepreneur</div>
-      </div>
-      <div class="testimonial">
-        <div>Fewer mistakes and more profits. Best decision I made!</div>
-        <div class="author">Noura - Online Store Owner</div>
-      </div>
-    </div>
-
-    <div class="faq">
-      <h3>Frequently Asked Questions</h3>
-      <div>
-        <div class="faq-q">Do I need technical experience?</div>
-        <div class="faq-a">Not at all! Our platform is designed for everyone at any technical level.</div>
-        <div class="faq-q">What is the subscription cost?</div>
-        <div class="faq-a">You can start for free, and our subscription plans start at an affordable monthly rate.</div>
-        <div class="faq-q">How does the platform help me with marketing?</div>
-        <div class="faq-a">AI manages marketing campaigns automatically to help you reach your best customers.</div>
-        <div class="faq-q">Can I integrate with local suppliers or shipping companies?</div>
-        <div class="faq-a">Yes, full integration with suppliers and shipping companies is provided.</div>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <div class="footer-links">
-      <a href="#">About Us</a> |
-      <a href="#">Terms & Conditions</a> |
-      <a href="#">Support</a> |
-      <a href="#">Contact Us</a>
-    </div>
-    All rights reserved © 2025 AI Merchant
-  </footer>
+<!-- Navbar -->
+<header class="navbar">
+<div class="container nav-wrap">
+<a class="brand" href="#"><span class="logo">🤖</span><span>AI Merchant</span></a>
+<nav class="nav-links" id="navLinks">
+<a href="#features">المزايا</a>
+<a href="#how">كيف يعمل</a>
+<a href="#pricing">الأسعار</a>
+<a href="#faq">الأسئلة الشائعة</a>
+<a href="#cta" class="btn btn--ghost">جرّبه الآن</a>
+</nav>
+<button class="burger" id="burger" aria-label="قائمة"><span></span><span></span><span></span></button>
+</div>
+</header>
+<!-- Hero -->
+<section class="hero">
+<div class="container hero-grid">
+<div class="hero-text">
+<h1>التاجر الإلكتروني الذكي المدعوم بالذكاء الاصطناعي</h1>
+<p class="muted">أتمتة كاملة لدورة التجارة الإلكترونية: اختيار المنتجات، إدارة المخزون، التسعير الديناميكي، التسويق، خدمة العملاء، والشحن — كل ذلك في منصة واحدة.</p>
+<div class="hero-cta"><a href="#cta" class="btn btn--primary">ابدأ النسخة التجريبية</a><a href="#features" class="btn btn--ghost">اكتشف المزايا</a></div>
+<div class="badges"><span class="badge">اشتراك شهري (SaaS)</span><span class="badge">عمولة على المبيعات</span><span class="badge">خدمات إضافية مدفوعة</span></div>
+</div>
+<div class="hero-card"><div class="card">
+<h3>لوحة تاجر ذكية</h3>
+<ul class="checklist">
+<li>🔍 اختيار المنتجات المربحة تلقائيًا</li>
+<li>📦 مزامنة المخزون مع الموردين</li>
+<li>💲 تسعير ديناميكي حسب السوق</li>
+<li>📢 حملات تسويق مُدارة بالذكاء الاصطناعي</li>
+<li>🤖 شات بوت لخدمة العملاء 24/7</li>
+<li>🚚 تكامل شركات الشحن</li>
+</ul></div></div>
+</div>
+</section>
+<!-- Features -->
+<section id="features" class="section">
+<div class="container"><h2 class="section-title">المزايا الأساسية</h2>
+<div class="grid-3">
+<div class="feature"><div class="feature-icon">🔎</div><h3>اختيار المنتجات</h3><p>تحليل السوق والاتجاهات لاكتشاف فرص منتجات مربحة بأقل منافسة.</p></div>
+<div class="feature"><div class="feature-icon">📦</div><h3>إدارة المخزون</h3><p>تحديثات تلقائية ومزامنة مع الموردين لتجنّب نفاد المخزون.</p></div>
+<div class="feature"><div class="feature-icon">💲</div><h3>تسعير ذكي</h3><p>تعديل الأسعار تلقائيًا بناءً على الطلب والمنافسة والهوامش.</p></div>
+<div class="feature"><div class="feature-icon">📢</div><h3>تسويق آلي</h3><p>إعلانات مستهدفة وإدارة القنوات من مكان واحد مع تقارير واضحة.</p></div>
+<div class="feature"><div class="feature-icon">🤖</div><h3>خدمة عملاء</h3><p>شات بوت متعدد اللغات يجيب 24/7 ويحوّل الحالات المعقدة للبشر.</p></div>
+<div class="feature"><div class="feature-icon">🚚</div><h3>لوجستيات سلسة</h3><p>تنسيق الشحن والتوصيل مع شركاء موثوقين وتتبع الطلبات.</p></div>
+</div>
+</div>
+</section>
+<!-- How it works -->
+<section id="how" class="section alt">
+<div class="container"><h2 class="section-title">كيف يعمل</h2>
+<ol class="steps">
+<li><span>1</span> أنشئ حسابك وحدّد السوق الذي تستهدفه.</li>
+<li><span>2</span> دع الذكاء الاصطناعي يقترح منتجات مربحة.</li>
+<li><span>3</span> أطلق متجرك تلقائيًا خلال دقائق.</li>
+<li><span>4</span> فعّل التسويق وخدمة العملاء والشحن بنقرة واحدة.</li>
+</ol>
+</div>
+</section>
+<!-- Pricing -->
+<section id="pricing" class="section">
+<div class="container">
+<div class="pricing-head">
+<h2 class="section-title">الأسعار</h2>
+<label class="toggle"><input type="checkbox" id="priceToggle" aria-label="تبديل سنوي / شهري"><span class="toggle-track" data-monthly="شهري" data-yearly="سنوي"></span></label>
+</div>
+<div class="grid-3">
+<div class="card price-card">
+<h3>Starter</h3>
+<div class="price"><span id="p1">99</span><small>$/<span id="term1">شهر</span></small></div>
+<ul class="list"><li>MVP: اختيار المنتجات + إطلاق متجر</li><li>مكوّنات أساسية</li><li>دعم عبر البريد</li></ul>
+<a href="#cta" class="btn btn--primary">ابدأ الآن</a>
+</div>
+<div class="card price-card price-card--featured"><div class="ribbon">الأكثر شيوعًا</div>
+<h3>Growth</h3>
+<div class="price"><span id="p2">199</span><small>$/<span id="term2">شهر</span></small></div>
+<ul class="list"><li>كل ما في Starter</li><li>تسويق آلي وتقارير</li><li>شات بوت 24/7</li></ul>
+<a href="#cta" class="btn btn--primary">جرّبه مجانًا</a>
+</div>
+<div class="card price-card">
+<h3>Scale</h3>
+<div class="price"><span id="p3">499</span><small>$/<span id="term3">شهر</span></small></div>
+<ul class="list"><li>كل ما في Growth</li><li>تكاملات لوجستية متقدمة</li><li>مدير نجاح مخصص</li></ul>
+<a href="#cta" class="btn btn--ghost">تحدث مع المبيعات</a>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ -->
+<section id="faq" class="section alt">
+<div class="container">
+<h2 class="section-title">الأسئلة الشائعة</h2>
+<div class="accordion" id="faqList">
+<div class="accordion-item">
+<button class="accordion-header">ما الذي يميز AI Merchant؟</button>
+<div class="accordion-body">يقلل الأخطاء ويختصر الوقت عبر أتمتة دورة التجارة بالكامل ويتيح دخولًا سريعًا للسوق.</div>
+</div>
+<div class="accordion-item">
+<button class="accordion-header">هل أحتاج خبرة مسبقة؟</button>
+<div class="accordion-body">لا، المنصة ترشدك خطوة بخطوة وتبدأ بـ MVP جاهز.</div>
+</div>
+<div class="accordion-item">
+<button class="accordion-header">هل يمكن ربط المنصة مع متجري الحالي؟</button>
+<div class="accordion-body">نعم، نوفر تكاملات شائعة عبر واجهات برمجة التطبيقات (API) والإضافات.</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA / Signup -->
+<section id="cta" class="section cta">
+<div class="container">
+<div class="card cta-card">
+<h2>ابدأ نسختك التجريبية الآن</h2>
+<p class="muted">سجّل بريدك الإلكتروني لنبلغك عند الإطلاق الأولي.</p>
+<form id="signupForm" class="signup-form" novalidate>
+<label class="sr-only" for="email">البريد الإلكتروني</label>
+<input type="email" id="email" placeholder="you@example.com" required>
+<button type="submit" class="btn btn--primary">تسجيل</button>
+<small id="formMsg" class="form-msg" role="status" aria-live="polite"></small>
+</form>
+</div>
+</div>
+</section>
+<footer class="footer">
+<div class="container footer-grid">
+<p>© <span id="year"></span> AI Merchant. جميع الحقوق محفوظة.</p>
+<div class="socials">
+<a href="#" aria-label="X">X</a>
+<a href="#" aria-label="LinkedIn">LinkedIn</a>
+<a href="#" aria-label="YouTube">YouTube</a>
+</div>
+</div>
+</footer>
+<script>
+// Burger menu toggle
+const burger=document.getElementById("burger"),navLinks=document.getElementById("navLinks");
+burger.addEventListener("click",()=>{navLinks.classList.toggle("open");});
+// Pricing toggle
+const priceToggle=document.getElementById("priceToggle"),prices=[{monthly:99,yearly:990},{monthly:199,yearly:1990},{monthly:499,yearly:4990}],p1=document.getElementById("p1"),p2=document.getElementById("p2"),p3=document.getElementById("p3"),term1=document.getElementById("term1"),term2=document.getElementById("term2"),term3=document.getElementById("term3");
+priceToggle.addEventListener("change",()=>{if(priceToggle.checked){p1.textContent=prices[0].yearly;p2.textContent=prices[1].yearly;p3.textContent=prices[2].yearly;term1.textContent="سنة";term2.textContent="سنة";term3.textContent="سنة";}else{p1.textContent=prices[0].monthly;p2.textContent=prices[1].monthly;p3.textContent=prices[2].monthly;term1.textContent="شهر";term2.textContent="شهر";term3.textContent="شهر";}});
+// FAQ accordion
+document.querySelectorAll(".accordion-item").forEach(item=>{item.querySelector(".accordion-header").addEventListener("click",()=>{item.classList.toggle("open");});});
+// Footer year
+document.getElementById("year").textContent=new Date().getFullYear();
+// Signup form
+const form=document.getElementById("signupForm"),formMsg=document.getElementById("formMsg");
+form.addEventListener("submit",(e)=>{e.preventDefault();const email=form.email.value.trim();if(!email||!/\S+@\S+\.\S+/.test(email)){formMsg.textContent="الرجاء إدخال بريد إلكتروني صالح.";formMsg.style.color="var(--primary)";return;}formMsg.textContent="تم التسجيل بنجاح! شكرًا لك.";formMsg.style.color="var(--success)";form.reset();});
+</script>
 </body>
 </html>
